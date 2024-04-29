@@ -13,8 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  '\n  query getCharacters {\n    characters {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        status\n      }\n    }\n  }\n':
-    types.GetCharactersDocument,
+    "\n  query getCharacters {\n    characters {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n": types.GetCharactersDocument,
 };
 
 /**
@@ -29,18 +28,15 @@ const documents = {
  * The query argument is unknown!
  * Please regenerate the types.
  */
-export function gql(source: string): unknown;
+export function graphql(source: string): unknown;
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(
-  source: '\n  query getCharacters {\n    characters {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        status\n      }\n    }\n  }\n',
-): (typeof documents)['\n  query getCharacters {\n    characters {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        status\n      }\n    }\n  }\n'];
+export function graphql(source: "\n  query getCharacters {\n    characters {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n"): (typeof documents)["\n  query getCharacters {\n    characters {\n      info {\n        count\n        pages\n        next\n        prev\n      }\n      results {\n        id\n        name\n        image\n      }\n    }\n  }\n"];
 
-export function gql(source: string) {
+export function graphql(source: string) {
   return (documents as any)[source] ?? {};
 }
 
-export type DocumentType<TDocumentNode extends DocumentNode<any, any>> =
-  TDocumentNode extends DocumentNode<infer TType, any> ? TType : never;
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;
